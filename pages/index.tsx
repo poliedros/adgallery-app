@@ -9,6 +9,8 @@ const Home: NextPage = () => {
         <meta name="description" content="CZAR+ Adgallery" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
+
+      <h1 className="text-3xl font-bold underline">Hello world!</h1>
     </div>
   );
 };
