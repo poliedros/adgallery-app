@@ -1,0 +1,179 @@
+{
+    "signin": {
+        "pt": "Entrar"
+    },
+    "signup": {
+        "pt": "Cadastrar"
+    },
+    "login": {
+        "pt": ""
+    },
+    "logout": {
+        "pt": ""
+    },
+    "codePayment": {
+        "pt": ""
+    },
+    "ok": {
+        "pt": "Correto"
+    },
+    "agree": {
+        "pt": "Concordo"
+    },
+    "confirm": {
+        "pt": "Confirmar"
+    },
+    "start": {
+        "pt": "Começo"
+    },
+    "enter": {
+        "pt": "Ingressar"
+    },
+    "leave": {
+        "pt": "Sair"
+    },
+    "close": {
+        "pt": "Fechar"
+    },
+    "reject": {
+        "pt": "Rejeitar"
+    },
+    "rejectAd": {
+        "pt": "Rejeitar Anúncio"
+    },
+    "confirmPayment": {
+        "pt": "Confirmar Pagamento"
+    },
+    "currentAdStatus": {
+        "pt": "Estado atual do Anúncio"
+    },
+    "erase": {
+        "pt": "Remover"
+    },
+    "status": {
+        "pt": "Estado"
+    },
+    "description": {
+        "pt": "Descrição"
+    },
+    "saveAdsOrder": {
+        "pt": "Salvar a Ordenação dos Anúncios"
+    },
+    "publishAds": {
+        "pt": "Publicar Anúncios"
+    },
+    "currentAds": {
+        "pt": "Anúncios Existentes"
+    },
+    "newAd": {
+        "pt": "Confirmar Novo Anúncio"
+    },
+    "price": {
+        "pt": "Preço"
+    },
+    "scales": {
+        "pt": "Escalas"
+    },
+    "newFormatAd": {
+        "pt": "Confirmar Novo Formato de Anúncio"
+    },
+    "editFormatAd": {
+        "pt": "Confirmar Alterações no Formato de Anúncio"
+    },
+    "returnNewFormatAd": {
+        "pt": "Retornar a Criação de Novo Formato de Anúncio"
+    },
+    "email": {
+        "pt": "E-mail"
+    },
+    "enterEmail": {
+        "pt": "Insira seu E-mail aqui"
+    },
+    "password": {
+        "pt": "Senha"
+    },
+    "enterPassword": {
+        "pt": "Insira sua Senha aqui"
+    },
+    "edit": {
+        "pt": "Editar"
+    },
+    "name": {
+        "pt": "Nome"
+    },
+    "enterName": {
+        "pt": "Insira seu Nome aqui"
+    },
+    "accountDate": {
+        "pt": "Dados da Conta"
+    },
+    "adFormat": {
+        "pt": "Formato de Anúncio"
+    },
+    "width": {
+        "pt": "Largura"
+    },
+    "height": {
+        "pt": "Altura"
+    },
+    "configNewAd": {
+        "pt": "Configurar Novo Anúncio"
+    },
+    "confirmNewAd": {
+        "pt": "Confirmar Novo Anúncio"
+    },
+    "addImageToAd": {
+        "pt": "Adicione Imagens ao Anúncio"
+    },
+    "insertImage": {
+        "pt": "Arraste ou Envie Imagem"
+    },
+    "eraseAllImage": {
+        "pt": "Eliminar todas as Imagens"
+    },
+    "adFormatConfig": {
+        "pt": "Configurar o Formato do Anúncio"
+    },
+    "createAd": {
+        "pt": "Criar Novo Anúncio"
+    },
+    "showAds": {
+        "pt": "Exibir Anúncios"
+    },
+    "createAdFormat": {
+        "pt": "Criar Novo Formato de Anúncio"
+    },
+    "showAdFormats": {
+        "pt": "Exibir Formatos de Anúncios"
+    },
+    "adConfig": {
+        "pt": "Configurar Anúncio"
+    },
+    "adGallery": {
+        "pt": "Galeria de Anúncios"
+    },
+    "changeAdStatus": {
+        "pt": "Alterar Situação dos Anúncios"
+    },
+    "orderAd": {
+        "pt": "Ordenar Anúncios"
+    },
+    "confirmAd": {
+        "pt": "Confirmar Anúncio"
+    },
+    "addImagesToAd": {
+        "pt": "Adicionar Imagens ao Anúncio"
+    },
+    "eraseAllImages": {
+        "pt": "Eliminar todas as Imagens"
+    },
+    "emptyText": {
+        "pt": "Texto Vazio"
+    },
+    "brazilianCurrency": {
+        "pt": "Reais"
+    },
+    "brazilianCurrencySign": {
+        "pt": "R$"
+    }
+}

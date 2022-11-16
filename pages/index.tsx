@@ -1,16 +1,20 @@
 import type { NextPage } from "next";
 import Head from "next/head";
+import AgIntro from "../components/agIntro";
+import AgTitle from "../components/agTitle";
+import Erase from "../components/erase";
 
 const Home: NextPage = () => {
   return (
-    <div>
+    <div className="bg-slate-900 text-white">
       <Head>
         <title>Adgallery-app</title>
         <meta name="description" content="CZAR+ Adgallery" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-
-      <h1 className="text-3xl font-bold underline">Hello world!</h1>
+      {/* <Erase /> */}
+      <AgIntro />
+      {/*<h1 className="text-3xl font-bold underline">Hello world!</h1>*/}
     </div>
   );
 };
