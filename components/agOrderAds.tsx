@@ -1,5 +1,5 @@
-import React, { useState, useEffect, Component } from 'react';
-import PropTypes from 'prop-types';
+import React, { useState, useEffect, Component } from "react";
+import PropTypes from "prop-types";
 
 //import _ from "lodash";
 
@@ -173,21 +173,26 @@ class GridLayout extends React.Component {
     }
 } */
 
-export default function AgOrderAds({ show, onHide, closeModal }: { show: boolean, onHide: any, closeModal: any }) {
-    const fetcher = (url: string) => fetch(url).then((res) => res.json());
-    const { data: ads, error } = useSWR<AdDTO[]>(
-        "/api/ads",
-        fetcher
-    );
+export default function AgOrderAds({
+  show,
+  onHide,
+  closeModal,
+}: {
+  show: boolean;
+  onHide: any;
+  closeModal: any;
+}) {
+  const fetcher = (url: string) => fetch(url).then((res) => res.json());
+  const { data: ads, error } = useSWR<AdDTO[]>("/api/ads", fetcher);
 
-    const { data: adFormats, error: error2 } = useSWR<AdFormatDTO[]>(
-        "/api/adformats",
-        fetcher
-    );
+  const { data: adFormats, error: error2 } = useSWR<AdFormatDTO[]>(
+    "/api/adformats",
+    fetcher
+  );
 
-    //const [updatedGrid, setUpdatedGrid] = useState([]);
+  //const [updatedGrid, setUpdatedGrid] = useState([]);
 
-    /*const [grid, setGrid] = useState({});
+  /*const [grid, setGrid] = useState({});
 
     const [id, setId] = useState();
 
@@ -227,47 +232,59 @@ export default function AgOrderAds({ show, onHide, closeModal }: { show: boolean
         getDataFormat();
     }, adFormatList);*/
 
-    let layout1: { i: any; x: any; y: any; w: any; h: any; }[] = [];
+  let layout1: { i: any; x: any; y: any; w: any; h: any }[] = [];
 
-    if (!ads || !adFormats) return <>loading...</>;
+  if (!ads || !adFormats) return <>loading...</>;
 
-    //adList
-    ads.map(function myFunction(value, index, array) {
-        if (index % 2 == 0)
-            layout1.push({
-                i: value._id,
-                x: value.order.x,
-                y: value.order.y,
-                w: /* adFormatList */ adFormats.filter((af) => af._id == value.adFormatId)[0]
-                    ? /* adFormatList */ adFormats.filter((af) => af._id == value.adFormatId)[0]
-                          ?.width ?? 6
-                    : 6,
-                h: /* adFormatList */ adFormats.filter((af) => af._id == value.adFormatId)[0]
-                    ? /* adFormatList */ adFormats.filter((af) => af._id == value.adFormatId)[0]
-                          ?.height ?? 1
-                    : 1,
-            });
-        else
-            layout1.push({
-                i: value._id,
-                x: value.order.x,
-                y: value.order.y,
-                w: /* adFormatList */ adFormats.filter((af) => af._id == value.adFormatId)[0]
-                    ? /* adFormatList */ adFormats.filter((af) => af._id == value.adFormatId)[0]
-                          ?.width ?? 6
-                    : 6,
-                h: /* adFormatList */ adFormats.filter((af) => af._id == value.adFormatId)[0]
-                    ? /* adFormatList */ adFormats.filter((af) => af._id == value.adFormatId)[0]
-                          ?.height ?? 2
-                    : 2,
-            });
-    });
+  //adList
+  ads.map(function myFunction(value, index, array) {
+    if (index % 2 == 0)
+      layout1.push({
+        i: value._id,
+        x: value.order.x,
+        y: value.order.y,
+        w: /* adFormatList */ adFormats.filter(
+          (af) => af._id == value.adFormatId
+        )[0]
+          ? /* adFormatList */ adFormats.filter(
+              (af) => af._id == value.adFormatId
+            )[0]?.width ?? 6
+          : 6,
+        h: /* adFormatList */ adFormats.filter(
+          (af) => af._id == value.adFormatId
+        )[0]
+          ? /* adFormatList */ adFormats.filter(
+              (af) => af._id == value.adFormatId
+            )[0]?.height ?? 1
+          : 1,
+      });
+    else
+      layout1.push({
+        i: value._id,
+        x: value.order.x,
+        y: value.order.y,
+        w: /* adFormatList */ adFormats.filter(
+          (af) => af._id == value.adFormatId
+        )[0]
+          ? /* adFormatList */ adFormats.filter(
+              (af) => af._id == value.adFormatId
+            )[0]?.width ?? 6
+          : 6,
+        h: /* adFormatList */ adFormats.filter(
+          (af) => af._id == value.adFormatId
+        )[0]
+          ? /* adFormatList */ adFormats.filter(
+              (af) => af._id == value.adFormatId
+            )[0]?.height ?? 2
+          : 2,
+      });
+  });
 
-    let layout = { lg: layout1 };
+  let layout = { lg: layout1 };
 
-    /* const [image, setImage] = useState(); */
+  /* const [image, setImage] = useState(); */
 
-    /* async function putAllAds() {
+  /* async function putAllAds() {
         //adList
         ads.map(async (al, i) => {
             if (
@@ -297,9 +314,9 @@ export default function AgOrderAds({ show, onHide, closeModal }: { show: boolean
         });
     } */
 
-    return (
-        <>
-            {/* <ModalBS
+  return (
+    <>
+      {/* <ModalBS
                 show={show}
                 onHide={() => closeModal(false)}
                 dialogClassName="modal-90w"
@@ -313,76 +330,74 @@ export default function AgOrderAds({ show, onHide, closeModal }: { show: boolean
                     />
                 </div>
                 <ModalBS.Body style={{}}> */}
-                <div className="flex">
-                <div className="w-full h-[70%] overflow-auto smallScroll absolute top-[9rem] right-0">
-                    <ResponsiveReactGridLayout
-                        //className="layout"
-                        layouts={layout}
-                        breakpoints={{ lg: 1200 }}
-                        cols={{ lg: 12 }}
-                        rowHeight={128}
-                        width={1200}
-                        onLayoutChange={(e) => {
-                            //setUpdatedGrid(e);
-                        }}
-                    >
-                        {//adList
-                        ads.map((ad) =>
-                            ad.urls[0] ? (
-                                <div key={ad._id ?? ""}>
-                                    <Image
-                                        style={{
-                                            width: "100%",
-                                            height: "100%",
-                                            margin: "0px",
-                                        }}
-                                        className="unique"
-                                        src={ad.urls[0]}
-                                        alt={ad.description}
-                                        title={ad.description}
-                                    ></Image>
-                                </div>
-                            ) : (
-                                <></>
-                            )
-                        )}
-                    </ResponsiveReactGridLayout>
+      <div className="flex">
+        <div className="w-full h-[70vh] overflow-auto smallScroll absolute top-[9rem] right-0">
+          <ResponsiveReactGridLayout
+            //className="layout"
+            layouts={layout}
+            breakpoints={{ lg: 1200 }}
+            cols={{ lg: 12 }}
+            rowHeight={128}
+            width={1200}
+            onLayoutChange={(e) => {
+              //setUpdatedGrid(e);
+            }}
+          >
+            {
+              //adList
+              ads.map((ad) =>
+                ad.urls[0] ? (
+                  <div key={ad._id ?? ""}>
+                    <Image
+                      style={{
+                        width: "100%",
+                        height: "100%",
+                        margin: "0px",
+                      }}
+                      className="unique"
+                      src={ad.urls[0]}
+                      alt={ad.description}
+                      title={ad.description}
+                    ></Image>
+                  </div>
+                ) : (
+                  <></>
+                )
+              )
+            }
+          </ResponsiveReactGridLayout>
+        </div>
+      </div>
+      <div className="flex justify-evenly w-content">
+        <div className="text-center">
+          <Button
+            className="w-auto !rounded-none"
+            //onClick={() => putAllAds()}
+          >
+            Salvar Ordem dos Anúncios
+          </Button>
+        </div>
 
-                    
-                </div>
-                </div>
-                <div
-                        className="flex justify-evenly w-content"
-                    >
-                        <div className="text-center">
-                            <Button
-                                className="w-auto !rounded-none"
-                                //onClick={() => putAllAds()}
-                            >
-                                Salvar Ordem dos Anúncios
-                            </Button>
-                        </div>
-                        
-                        <div className="text-center">
-                            <Button onClick={undefined} className="w-auto !rounded-none">
-                                Publicar Anúncios
-                            </Button>
-                        </div>
-                    </div>
-                    
-                {/* </ModalBS.Body>
+        <div className="text-center">
+          <Button onClick={undefined} className="w-auto !rounded-none">
+            Publicar Anúncios
+          </Button>
+        </div>
+      </div>
+      <hr />
+      {/* </ModalBS.Body>
                 <div style={{ textAlign: "center" }}>
                     <Button onClick={onHide} style={{ width: "auto" }}>
                         Fechar
                     </Button>
                 </div>
             </ModalBS> */}
-            {/* <Button className="!rounded-none" variant="secondary" /* type="submit" />
+      {/* <Button className="!rounded-none" variant="secondary" /* type="submit" />
                 Signup
             </Button>
             <Button className="!rounded-none" variant="secondary" /* type="submit" />
                 Signup
             </Button> */}
-        </>
-    );
+    </>
+  );
 }

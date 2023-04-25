@@ -8,41 +8,45 @@ import AgAccountNavbar from "../../components/agAccountNavbar";
 import AgNavbar from "../../components/agNavbar";
 
 export default function Create() {
-    //const { user } = useUser({ redirectTo: "/login" });
+  //const { user } = useUser({ redirectTo: "/login" });
 
-    const [error, setError] = useState("");
+  const [error, setError] = useState("");
 
-    /* if (!user || user.isLoggedIn == false) {
+  /* if (!user || user.isLoggedIn == false) {
         return <div>404</div>;
     } */
 
-    const saveAd = async (adFormat: AdFormatDTO) => {
-        const data = await fetch("/api/adformats", {
-            method: "POST",
-            body: JSON.stringify(adFormat),
-        }); //.finally(() => setLoading(false));
-        if (data.status === 201) {
-            alert("Create AdFormat");
-        } else {
-            setError("Create AdFormat Fault");
-        }
-    };
+  const saveAd = async (adFormat: AdFormatDTO) => {
+    const data = await fetch("/api/adformats", {
+      method: "POST",
+      body: JSON.stringify(adFormat),
+    }); //.finally(() => setLoading(false));
+    if (data.status === 201) {
+      alert("Create AdFormat");
+    } else {
+      setError("Create AdFormat Fault");
+    }
+  };
 
-    return (
-        <>
-            {/* <AgModalBase show={true} onHide={undefined} modalType={"adsFormat"} data={undefined} /> */}
-            {/* <CountyRegistration
+  return (
+    <>
+      {/* <AgModalBase show={true} onHide={undefined} modalType={"adsFormat"} data={undefined} /> */}
+      {/* <CountyRegistration
                 language={"pt"}
                 county={undefined}
                 onSubmit={saveCounty}
             /> */}
-            <div className="bg-black">
-                <AgNavbar />
-                <AgAccountNavbar />
-                <AgMainAccountAccordion />
-                <AgOffcanvasBase show={true} onHide={undefined} canvasType={"adFormat"} />
-            </div>
-            <>{error}</>
-        </>
-    );
+      <div className="bg-black">
+        <AgNavbar />
+        <AgAccountNavbar />
+        <AgMainAccountAccordion />
+        <AgOffcanvasBase
+          show={true}
+          onHide={undefined}
+          canvasType={"adFormat"}
+        />
+      </div>
+      <>{error}</>
+    </>
+  );
 }
