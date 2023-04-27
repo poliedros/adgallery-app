@@ -2,11 +2,11 @@ import { Container, Row, Col, ProgressBar } from "react-bootstrap";
 import getIconsByName from "../functions/getIconsByName";
 
 export default function Erase() {
-    return (
-        <>
-            <Container className="font-[Lekton] p-10">
-                <Row>
-                    {/* <Col sm={12}>
+  return (
+    <>
+      <Container className="font-[Lekton] p-10">
+        <Row>
+          {/* <Col sm={12}>
                     <h5>
                             Anderson Ribeiro<br/>
                             Moreno 3028 - 8C | +54 9 11 5508-2980 | sr.andersonmendesribeiro@gmail.com<br/>
@@ -56,193 +56,189 @@ export default function Erase() {
                             Sincerily, Anderson.
                         </h5>
                     </Col> */}
-                    <Col className="flex items-center p-6" sm={4}>
-                        <h1 className="">
-                            Anderson
-                            <br />
-                            <span className="font-[DotGothic16] text-[#eab308]">
-                                M
-                            </span>
-                            endes
-                            <br />
-                            Ribeiro
-                        </h1>
-                    </Col>
-                    <Col className="p-6" sm={8}>
-                        <h5 className="flex font-[DotGothic16] text-[#84cc16]">
-                            {getIconsByName("bi", "BiHome")}&nbsp;{/* Residência Residencia */}Address
-                        </h5>
-                        <h4>
-                            Moreno 3028 - Balvanera | Ciudad Autónoma de Buenos
-                            Aires - Argentina
-                            <br />
-                            {/* Código Postal */}Zip Code C1209ABF
-                        </h4>
-                        <h4 className="flex">
-                            {getIconsByName("md", "MdMail")}
-                            &nbsp;sr.andersonmendesribeiro@gmail.com
-                            {/* (preferêncial) */}
-                        </h4>
-                        <h4 className="flex">
-                            {getIconsByName("md", "MdPhoneAndroid")}&nbsp;+54 11
-                            5508-2980
-                        </h4>
-                    </Col>
-                    <h6 className="border-l-4 border-[#84cc16] mt-3 mx-3 mb-12">
-                        {/* Estudei na UFV, fiz um intercâmbio, e ao regressar
+          <Col className="flex items-center p-6" sm={4}>
+            <h1 className="">
+              Anderson
+              <br />
+              <span className="font-[DotGothic16] text-[#eab308]">M</span>
+              endes
+              <br />
+              Ribeiro
+            </h1>
+          </Col>
+          <Col className="p-6" sm={8}>
+            <h5 className="flex font-[DotGothic16] text-[#84cc16]">
+              {getIconsByName("bi", "BiHome")}&nbsp;
+              {/* Residência Address */}Residencia
+            </h5>
+            <h4>
+              Moreno 3028 - Balvanera | Ciudad Autónoma de Buenos Aires -
+              Argentina
+              <br />
+              {/* Zip Code */}Código Postal C1209ABF
+            </h4>
+            <h4 className="flex">
+              {getIconsByName("md", "MdMail")}
+              &nbsp;sr.andersonmendesribeiro@gmail.com
+              {/* (preferêncial) */}
+            </h4>
+            <h4 className="flex">
+              {getIconsByName("md", "MdPhoneAndroid")}&nbsp;+54 11 5508-2980
+            </h4>
+          </Col>
+          <h6 className="border-l-4 border-[#84cc16] mt-3 mx-3 mb-12">
+            {/* Estudei na UFV, fiz um intercâmbio, e ao regressar
                         participei de um trabalho educatico para prefeitura,
                         posteriormente me mudei para Argentina, onde estou
                         trabalhando para Beesion, uma companhia multinacional de
                         origem argentina, desde de 2019. Mais de 3 anos de
                         experiência em desenvolvimento de software. */}
-                        I studied at UFV, did an exchange program at this time. After I returned
-                        and participated in an educational work for the city hall.
-                        Later I moved to Argentina, where I am
-                        working for Beesion, a multinational company of
-                        Argentinian origin, since 2019. More than 4 years of
-                        experience in software development.
-                        {/*Estudié en la UFV, hice un intercambio y cuando regresé
-                        participé en un trabajo educativo para gobierno de Viçosa,
-                        luego me mudé a Argentina, donde estoy
-                        trabajando para Beesion, una empresa multinacional de
-                        origen argentina, desde 2019. Casi 4 años de
-                        experiencia en desarrollo de software.
-                        */}
-                    </h6>
-                    <Col
-                        className="flex items-center justify-center my-6"
-                        sm={1}
-                    >
-                        <h3>{getIconsByName("ri", "RiBriefcase4Fill")}</h3>
-                    </Col>
-                    <Col sm={11} className="border-l-2 my-6 my-6">
-                        <h5>
-                            <span className="font-[DotGothic16] text-[#84cc16]">
-                                Trainee - {/* Programador Junior */} Junior Programmer - Full Stack
-                            </span>
-                            <br />
-                            {/* Janeiro de 2019 - Atualmente Enero 2019 - Actualmente */} JAN 2019 - Currently
-                            <br />
-                            <span className="bg-[#14532d]">
-                                &nbsp;Beesion&nbsp;
-                            </span>{" "}
-                            - Low Code Technology Solutions
-                            <br />
-                            Palermo - Ciudad Autónoma de Buenos Aires -
-                            Argentina
-                            <br />
-                            <span className="font-[DotGothic16] text-[#84cc16]">
-                                {/* Professor de Programação Profesor de Programación */}Teaching Code
-                            </span>
-                            <br />
-                            {/* Abril de 2015 - Junho de 2015  Abril 2015 - Junio 2015 */}
-                            APR 2015 - JUN 2015
-                            <br />
-                            <span className="bg-[#14532d]">
-                                &nbsp;Colégio Viçosa&nbsp;
-                            </span>
-                            <br />
-                            Viçosa - Minas Gerais - Brasil
-                            <br />
-                        </h5>
-                    </Col>
-                    <Col
-                        className="flex items-center justify-center my-6"
-                        sm={1}
-                    >
-                        <h3>{getIconsByName("fa", "FaUniversity")}</h3>
-                    </Col>
-                    <Col sm={11} className="border-l-2 my-6">
-                        <h6>
-                            <span className="font-[DotGothic16] text-[#84cc16]">
-                                {/* Universidade Universidad*/}University
-                            </span>
-                            <br />
-                            {/* Março de 2012 - Novembro de 2016 Marzo 2012 - Noviembre 2016 */}
-                            MAR 2016 - NOV 2016
-                            <br />
-                            <span className="bg-[#14532d]">
-                                &nbsp;Universidade Federal de Viçosa&nbsp;
-                            </span>{" "}
-                            - {/* Ciência da Computação Ciencia de la Computación*/}Computer Science
-                            <br />
-                            Viçosa - Minas Gerias - Brasil
-                            <br />
-                            <span className="font-[DotGothic16] text-[#84cc16]">
-                                {/* Intercambio */}Exchangeship
-                            </span>
-                            <br />
-                            {/* Fevereiro de 2014 - Dezembro de 2014 Febrero 2014 - Diciembre 2014*/}
-                            FEB 2014 - DIC 2014
-                            <br />
-                            <span className="bg-[#14532d]">
-                                &nbsp;University at Albany&nbsp;
-                            </span>{" "}
-                            - {/* Ciência da Computação Ciencia de la Computación*/}Computer Science
-                            <br />
-                            Albany - New York - {/* Estados Unidos EEUU*/}USA
-                            <br />
-                        </h6>
-                    </Col>
-                    <h5 className="leading-relaxed">
-                        <span className="font-[DotGothic16] text-[#84cc16] flex">
-                            {getIconsByName("fa", "FaLanguage")}&nbsp;{/* Línguas Idiomas*/}Languages
-                        </span>
-                        {/* Português, Inglês e Espanhol */}
-                        {/* Portugués, Inglés y Español */}
-                        Portugues, English and Spanish
-                        <br />
-                        <br />
-                        <span className="font-[DotGothic16] text-[#84cc16] flex">
-                            Back-End
-                        </span>
-                        <span className="bg-[#14532d]">
-                            &nbsp;C++, JAVA, JS(TS), Python {/* e y*/}and PHP&nbsp;
-                        </span>
-                        <br />
-                        <ProgressBar striped variant="success" now={70} />
-                        <br />
-                        <span className="font-[DotGothic16] text-[#84cc16] flex">
-                            Front-End Framework
-                        </span>
-                        <span className="bg-[#14532d]">
-                            &nbsp;Angular, React.js {/* e y*/}and Next.js&nbsp;
-                        </span>{" "}
-                        (HTML, CSS {/* e y similares*/}and suchlike)
-                        <br />
-                        <ProgressBar striped variant="success" now={90} />
-                        <br />
-                        <span className="font-[DotGothic16] text-[#84cc16] flex">
-                            {/* Bancos de Dados Base de Datos*/} Data Base
-                        </span>
-                        <span className="bg-[#14532d]">
-                            &nbsp;MySQL, MongoDB {/* e y*/}and API&nbsp;
-                        </span>
-                        <br />
-                        <ProgressBar striped variant="success" now={65} />
-                    </h5>
-                    <h6>
-                        <span className="font-[DotGothic16] text-[#84cc16] flex">
-                            {getIconsByName("ri", "RiCreativeCommonsByFill")}
-                            &nbsp;{/* Habilidades */}Skills
-                        </span>{" "}
-                        Latex, Matlab, Three.js, {/* Manipulção de Imagens,
+            {/* I studied at UFV, did an exchange program at this time. After I
+            returned and participated in an educational work for the city hall.
+            Later I moved to Argentina, where I am working for Beesion, a
+            multinational company of Argentinian origin, since 2019. More than 4
+            years of experience in software development. */}
+            Estudié en la UFV, hice un intercambio y cuando regresé participé en
+            un trabajo educativo para gobierno de Viçosa, luego me mudé a
+            Argentina, donde estoy trabajando para Beesion, una empresa
+            multinacional de origen argentina, desde 2019. Casi 4 años de
+            experiencia en desarrollo de software.
+          </h6>
+          <Col className="flex items-center justify-center my-6" sm={1}>
+            <h3>{getIconsByName("ri", "RiBriefcase4Fill")}</h3>
+          </Col>
+          <Col sm={11} className="border-l-2 my-6 my-6">
+            <h5>
+              <span className="font-[DotGothic16] text-[#84cc16]">
+                {/* Md/Sr Programmer */} Programador Middle/Senior - Full Stack
+              </span>
+              <br />
+              {/* Janeiro de 2019 - Atualmente JAN
+              2019 - Currently */}{" "}
+              Enero 2019 - Actualmente
+              <br />
+              <span className="bg-[#14532d]">&nbsp;Beesion&nbsp;</span> - Low
+              Code Technology Solutions
+              <br />
+              Palermo - Ciudad Autónoma de Buenos Aires - Argentina
+              <br />
+              <span className="font-[DotGothic16] text-[#84cc16]">
+                {/* Professor de Programação Teaching Code */}
+                Profesor de Programación
+              </span>
+              <br />
+              {/* Abril de 2015 - Junho de 2015 APR 2015 - JUN 2015  */}
+              Abril 2015 - Junio 2015
+              <br />
+              <span className="bg-[#14532d]">&nbsp;Colégio Viçosa&nbsp;</span>
+              <br />
+              Viçosa - Minas Gerais - Brasil
+              <br />
+            </h5>
+          </Col>
+          <Col className="flex items-center justify-center my-6" sm={1}>
+            <h3>{getIconsByName("fa", "FaUniversity")}</h3>
+          </Col>
+          <Col sm={11} className="border-l-2 my-6">
+            <h6>
+              <span className="font-[DotGothic16] text-[#84cc16]">
+                {/* Universidade University */}Universidad
+              </span>
+              <br />
+              {/* Março de 2012 - Novembro de 2016 MAR 2016 - NOV 2016 */}
+              Marzo 2012 - Noviembre 2016
+              <br />
+              <span className="bg-[#14532d]">
+                &nbsp;Universidade Federal de Viçosa&nbsp;
+              </span>{" "}
+              -{" "}
+              {/* Ciência da Computação Computer
+              Science */}
+              Ciencia de la Computación
+              <br />
+              Viçosa - Minas Gerias - Brasil
+              <br />
+              <span className="font-[DotGothic16] text-[#84cc16]">
+                {/* Exchangeship */}Intercambio
+              </span>
+              <br />
+              {/* Fevereiro de 2014 - Dezembro de 2014 FEB 2014 - DIC 2014 */}
+              Febrero 2014 - Diciembre 2014
+              <br />
+              <span className="bg-[#14532d]">
+                &nbsp;University at Albany&nbsp;
+              </span>{" "}
+              -{" "}
+              {/* Ciência da Computação Computer
+              Science */}
+              Ciencia de la Computación
+              <br />
+              Albany - New York - {/* Estados Unidos USA */}EEUU
+              <br />
+            </h6>
+          </Col>
+          <h5 className="leading-relaxed">
+            <span className="font-[DotGothic16] text-[#84cc16] flex">
+              {getIconsByName("fa", "FaLanguage")}&nbsp;
+              {/* Línguas Languages */}
+              Idiomas
+            </span>
+            {/* Português, Inglês e Espanhol */}
+            {/* Portugues, English and Spanish */}
+            Portugués, Inglés y Español
+            <br />
+            <br />
+            <span className="font-[DotGothic16] text-[#84cc16] flex">
+              Back-End
+            </span>
+            <span className="bg-[#14532d]">
+              &nbsp;C++, JAVA, JS(TS), Python {/* e and */}y PHP&nbsp;
+            </span>
+            <br />
+            <ProgressBar striped variant="success" now={70} />
+            <br />
+            <span className="font-[DotGothic16] text-[#84cc16] flex">
+              Front-End Framework
+            </span>
+            <span className="bg-[#14532d]">
+              &nbsp;Angular, React.js {/* e and */}y Next.js&nbsp;
+            </span>{" "}
+            (HTML, CSS {/* e and suchlike */}y similares)
+            <br />
+            <ProgressBar striped variant="success" now={90} />
+            <br />
+            <span className="font-[DotGothic16] text-[#84cc16] flex">
+              {/* Bancos de Dados Data Base */} Base de Datos
+            </span>
+            <span className="bg-[#14532d]">
+              &nbsp;MySQL, MongoDB {/* e and */}y API&nbsp;
+            </span>
+            <br />
+            <ProgressBar striped variant="success" now={65} />
+          </h5>
+          <h6>
+            <span className="font-[DotGothic16] text-[#84cc16] flex">
+              {getIconsByName("ri", "RiCreativeCommonsByFill")}
+              &nbsp;{/* Skills */}Habilidades
+            </span>{" "}
+            Latex, Matlab, Three.js,{" "}
+            {/* Manipulção de Imagens,
                         Engenharia de Software e Design */}
-                        {/* Manipulación de Imágines, Ingenería de Software y Design */}
-                        Picture manage, Software Engineering & Design
-                        <br />
-                        <span className="font-[DotGothic16] text-[#84cc16] flex">
-                            {getIconsByName("gi", "GiPerson")}&nbsp;{/* Pessoal */}Personal
-                        </span>
-                        {/* Criatividade, Solução de Problemas e Depuração,
+            Manipulación de Imágines, Ingenería de Software y Design
+            {/* Picture manage, Software Engineering & Design */}
+            <br />
+            <span className="font-[DotGothic16] text-[#84cc16] flex">
+              {getIconsByName("gi", "GiPerson")}&nbsp;{/* Pessoal */}Personal
+            </span>
+            {/* Criatividade, Solução de Problemas e Depuração,
                         Comunicação, Resolução de Conflitos, Pensamento Crítico */}
-                        {/* Creatividad, Solución de Problemas y Depuración,
-                        Comunicación, Resolución de Conflictos, Pensamiento Crítico */}
-                        Creativity, Troubleshooting and Debugging,
-                        Communication, Conflict Resolution, Critical Thinking
-                    </h6>
-                </Row>
-            </Container>
-        </>
-    );
+            Creatividad, Solución de Problemas y Depuración, Comunicación,
+            Resolución de Conflictos, Pensamiento Crítico
+            {/* Creativity, Troubleshooting and Debugging, Communication, Conflict
+            Resolution, Critical Thinking */}
+          </h6>
+        </Row>
+      </Container>
+    </>
+  );
 }
