@@ -6,7 +6,9 @@ import Erase from "../components/erase";
 
 const Home: NextPage = () => {
   return (
-    <div className="bg-slate-900 text-white">
+    <div className="bg-[#524630] text-white">
+      {" "}
+      {/* bg-slate-900 */}
       <Head>
         <title>Adgallery-app</title>
         <meta name="description" content="CZAR+ Adgallery" />

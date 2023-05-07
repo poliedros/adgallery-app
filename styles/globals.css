@@ -39,3 +39,11 @@
     display: flex;
     justify-content: center;
 }
+
+@media screen and (min-width : 600px)
+{
+  .titleLg
+  {
+    font-size: 10rem;
+  }
+}

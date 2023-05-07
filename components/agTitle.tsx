@@ -82,7 +82,7 @@ export default function AgTitle() {
   return (
     <>
       <Container className="text-center align-middle">
-        <div className="h-screen flex justify-center flex-column">
+        <div className="h-screen flex justify-center items-center flex-column">
           <h3>O seu guia de compras</h3>
           {/* <h1 className="font-[Jost] unselectable text-[10rem]">
             <span className="font-thin">G</span>
@@ -95,7 +95,7 @@ export default function AgTitle() {
           </h1> */}
           <h1
             style={{ fontFamily: "Playfair Display" }}
-            className="font-bold unselectable text-[10rem] tracking-tight uppercase"
+            className="font-bold unselectable text-[25vw] tracking-tight uppercase titleLg"
           >
             Opção
           </h1>
