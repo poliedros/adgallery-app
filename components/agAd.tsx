@@ -123,11 +123,11 @@ export default function AgAd({
                 {data.phone !== undefined || data.phone !== ""
                   ? data.phone.split("/").map((ph: string) => {
                       return data.adFormatId === "611872d13a1f1854a4681008" ? (
-                        <h2 className="font-bold">
+                        <h3 className="font-bold">
                           <a href={"tel:" + ph} className="whitespace-nowrap">
                             {ph}
                           </a>
-                        </h2>
+                        </h3>
                       ) : data.adFormatId === "6209b62804dbe50016b07ccc" ? (
                         <h2 className="font-bold">
                           <a href={"tel:" + ph} className="whitespace-nowrap">
@@ -149,25 +149,138 @@ export default function AgAd({
                       );
                     })
                   : null}
-                {data.email !== undefined || data.email !== "" ? (
-                  data.adFormatId === "611872d13a1f1854a4681008" ? (
-                    <h5 className="">
-                      <a href={"mailto:" + data.email}>{data.email}</a>
-                    </h5>
-                  ) : data.adFormatId === "6209b62804dbe50016b07ccc" ? (
-                    <h4 className="">
-                      <a href={"mailto:" + data.email}>{data.email}</a>
-                    </h4>
-                  ) : data.adFormatId === "620ad11413589700166baf4c" ? (
-                    <h3 className="">
-                      <a href={"mailto:" + data.email}>{data.email}</a>
-                    </h3>
-                  ) : (
-                    <h4 className="">
-                      <a href={"mailto:" + data.email}>{data.email}</a>
-                    </h4>
-                  )
-                ) : null}
+                {data.email !== undefined || data.email !== ""
+                  ? data.email.split("/").map((sn: string) => {
+                      if (data.adFormatId === "611872d13a1f1854a4681008") {
+                        let kv = sn.split(":");
+                        if (kv[0] === "em")
+                          return (
+                            <h5 className="">
+                              <a href={"mailto:" + kv[1]}>{kv[1]}</a>
+                            </h5>
+                          );
+                        if (kv[0] === "ig")
+                          return (
+                            <h5 className="">
+                              <a
+                                href={
+                                  kv[1][0] === "@"
+                                    ? "http://instagram.com/_u/" +
+                                      kv[1].substring(1)
+                                    : "http://instagram.com/_u/" + kv[1]
+                                }
+                              >
+                                {kv[1]}
+                              </a>
+                            </h5>
+                          );
+                        if (kv[0] === "fb")
+                          return (
+                            <h5 className="">
+                              <a href={"https://www.facebook.com/" + kv[1]}>
+                                {kv[1]}
+                              </a>
+                            </h5>
+                          );
+                      }
+                      if (data.adFormatId === "6209b62804dbe50016b07ccc") {
+                        let kv = sn.split(":");
+                        if (kv[0] === "em")
+                          return (
+                            <h4 className="">
+                              <a href={"mailto:" + kv[1]}>{kv[1]}</a>
+                            </h4>
+                          );
+                        if (kv[0] === "ig")
+                          return (
+                            <h4 className="">
+                              <a
+                                href={
+                                  kv[1][0] === "@"
+                                    ? "http://instagram.com/_u/" +
+                                      kv[1].substring(1)
+                                    : "http://instagram.com/_u/" + kv[1]
+                                }
+                              >
+                                {kv[1]}
+                              </a>
+                            </h4>
+                          );
+                        if (kv[0] === "fb")
+                          return (
+                            <h4 className="">
+                              <a href={"https://www.facebook.com/" + kv[1]}>
+                                {kv[1]}
+                              </a>
+                            </h4>
+                          );
+                      }
+                      if (data.adFormatId === "620ad11413589700166baf4c") {
+                        let kv = sn.split(":");
+                        if (kv[0] === "em")
+                          return (
+                            <h3 className="">
+                              <a href={"mailto:" + kv[1]}>{kv[1]}</a>
+                            </h3>
+                          );
+                        if (kv[0] === "ig")
+                          return (
+                            <h3 className="">
+                              <a
+                                href={
+                                  kv[1][0] === "@"
+                                    ? "http://instagram.com/_u/" +
+                                      kv[1].substring(1)
+                                    : "http://instagram.com/_u/" + kv[1]
+                                }
+                              >
+                                {kv[1]}
+                              </a>
+                            </h3>
+                          );
+                        if (kv[0] === "fb")
+                          return (
+                            <h3 className="">
+                              <a href={"https://www.facebook.com/" + kv[1]}>
+                                {kv[1]}
+                              </a>
+                            </h3>
+                          );
+                      }
+                      // if (data.adFormatId === "611872d13a1f1854a4681008") {
+                      let kv = sn.split(":");
+                      if (kv[0] === "em")
+                        return (
+                          <h4 className="">
+                            <a href={"mailto:" + kv[1]}>{kv[1]}</a>
+                          </h4>
+                        );
+                      if (kv[0] === "ig")
+                        return (
+                          <h4 className="">
+                            <a
+                              href={
+                                kv[1][0] === "@"
+                                  ? "http://instagram.com/_u/" +
+                                    kv[1].substring(1)
+                                  : "http://instagram.com/_u/" + kv[1]
+                              }
+                            >
+                              {kv[1]}
+                            </a>
+                          </h4>
+                        );
+                      if (kv[0] === "fb")
+                        return (
+                          <h4 className="">
+                            <a href={"https://www.facebook.com/" + kv[1]}>
+                              {kv[1]}
+                            </a>
+                          </h4>
+                        );
+                      // }
+                    })
+                  : null}
 
                 {/* <h2>{data.phone}</h2>
                 <h5>{data.email}</h5> */}
