@@ -1,3 +1,5 @@
+import getIconsByName from "../functions/getIconsByName";
+
 export default function AgAd({
   url,
   title,
@@ -9,7 +11,7 @@ export default function AgAd({
 }) {
   return (
     <>
-      <div className="flex flex-column items-center">
+      <div className="flex flex-column items-center fade-in">
         {data.adFormatId === "611872d13a1f1854a4681008" ? (
           <img className="w-[25vw] mt-[-64px]" src={url} />
         ) : data.adFormatId === "611872d13a1f1854a4681006" ? (
@@ -18,7 +20,7 @@ export default function AgAd({
           <img className="w-[50vw] mt-[-64px]" src={url} />
         )}
         <div className="text-center mt-3">
-          <div>
+          <div style={{ fontFamily: "Montserrat" }}>
             {data.title !== undefined || data.title !== "" ? (
               data.adFormatId === "611872d13a1f1854a4681008" ? (
                 <h3 className="font-bold">{data.title}</h3>
@@ -73,11 +75,11 @@ export default function AgAd({
               )
             ) : null}
           </div>
-          <div className="flex justify-evenly items-center">
+          <div className="flex justify-evenly items-center content-division">
             {(data.contact !== undefined && data.contact !== "") ||
             (data.phone !== undefined && data.phone !== "") ||
             (data.email !== undefined && data.email !== "") ? (
-              <div className="mx-3">
+              <div className="mx-3 flex flex-col items-center">
                 {data.contact !== undefined || data.contact !== "" ? (
                   data.adFormatId === "611872d13a1f1854a4681008" ? (
                     <h6
@@ -122,29 +124,141 @@ export default function AgAd({
                 ) : null}
                 {data.phone !== undefined || data.phone !== ""
                   ? data.phone.split("/").map((ph: string) => {
+                      let pd: string[] = ph.split(":");
                       return data.adFormatId === "611872d13a1f1854a4681008" ? (
-                        <h3 className="font-bold">
-                          <a href={"tel:" + ph} className="whitespace-nowrap">
-                            {ph}
+                        // ph.split(":").map((pd: string) => {
+                        <h3 className="font-bold flex items-center">
+                          {pd[1] !== "" ? (
+                            <span
+                              style={{ fontFamily: "Playfair Display" }}
+                              className="mr-2 italic"
+                            >
+                              {pd[1]}
+                            </span>
+                          ) : null}
+                          {pd[0] === "wa" ? (
+                            <span className="mr-2">
+                              {getIconsByName(
+                                "ri",
+                                "RiWhatsappFill",
+                                "20px",
+                                "#0DC143"
+                              )}
+                            </span>
+                          ) : null}
+                          {pd[3] !== "" ? (
+                            <span className="text-base mr-2">{pd[3]}</span>
+                          ) : null}
+                          <a
+                            href={"tel:" + pd[4]}
+                            className="whitespace-nowrap"
+                          >
+                            {pd[4]}
                           </a>
+                          {pd[2] !== "" ? (
+                            <span className="text-base ml-2">({pd[2]})</span>
+                          ) : null}
                         </h3>
-                      ) : data.adFormatId === "6209b62804dbe50016b07ccc" ? (
-                        <h2 className="font-bold">
-                          <a href={"tel:" + ph} className="whitespace-nowrap">
-                            {ph}
+                      ) : // })
+                      data.adFormatId === "6209b62804dbe50016b07ccc" ? (
+                        <h2 className="font-bold flex items-center">
+                          {pd[1] !== "" ? (
+                            <span
+                              style={{ fontFamily: "Playfair Display" }}
+                              className="mr-2 text-lg font-normal italic"
+                            >
+                              {pd[1]}
+                            </span>
+                          ) : null}
+                          {pd[0] === "wa" ? (
+                            <span className="mr-2">
+                              {getIconsByName(
+                                "ri",
+                                "RiWhatsappFill",
+                                "20px",
+                                "#0DC143"
+                              )}
+                            </span>
+                          ) : null}
+                          {pd[3] !== "" ? (
+                            <span className="text-lg mr-2">{pd[3]}</span>
+                          ) : null}
+                          <a
+                            href={"tel:" + pd[4]}
+                            className="whitespace-nowrap"
+                          >
+                            {pd[4]}
                           </a>
+                          {pd[2] !== "" ? (
+                            <span className="text-base ml-2">({pd[2]})</span>
+                          ) : null}
                         </h2>
                       ) : data.adFormatId === "620ad11413589700166baf4c" ? (
-                        <h1 className="font-bold">
-                          <a href={"tel:" + ph} className="whitespace-nowrap">
-                            {ph}
+                        <h1 className="font-bold flex items-center">
+                          {pd[1] !== "" ? (
+                            <span
+                              style={{ fontFamily: "Playfair Display" }}
+                              className="mr-2 text-lg font-normal italic"
+                            >
+                              {pd[1]}
+                            </span>
+                          ) : null}
+                          {pd[0] === "wa" ? (
+                            <span className="mr-2">
+                              {getIconsByName(
+                                "ri",
+                                "RiWhatsappFill",
+                                "28px",
+                                "#0DC143"
+                              )}
+                            </span>
+                          ) : null}
+                          {pd[3] !== "" ? (
+                            <span className="text-xl mr-2">{pd[3]}</span>
+                          ) : null}
+                          <a
+                            href={"tel:" + pd[4]}
+                            className="whitespace-nowrap"
+                          >
+                            {pd[4]}
                           </a>
+                          {pd[2] !== "" ? (
+                            <span className="text-base ml-2">({pd[2]})</span>
+                          ) : null}
                         </h1>
                       ) : (
-                        <h2 className="font-bold">
-                          <a href={"tel:" + ph} className="whitespace-nowrap">
-                            {ph}
+                        <h2 className="font-bold flex items-center">
+                          {pd[1] !== "" ? (
+                            <span
+                              style={{ fontFamily: "Playfair Display" }}
+                              className="mr-2 text-base font-normal italic"
+                            >
+                              {pd[1]}
+                            </span>
+                          ) : null}
+                          {pd[0] === "wa" ? (
+                            <span className="mr-2">
+                              {getIconsByName(
+                                "ri",
+                                "RiWhatsappFill",
+                                "24px",
+                                "#0DC143"
+                              )}
+                            </span>
+                          ) : null}
+
+                          {pd[3] !== "" ? (
+                            <span className="text-lg mr-2">{pd[3]}</span>
+                          ) : null}
+                          <a
+                            href={"tel:" + pd[4]}
+                            className="whitespace-nowrap"
+                          >
+                            {pd[4]}
                           </a>
+                          {pd[2] !== "" ? (
+                            <span className="text-base ml-2">({pd[2]})</span>
+                          ) : null}
                         </h2>
                       );
                     })
@@ -155,13 +269,24 @@ export default function AgAd({
                         let kv = sn.split(":");
                         if (kv[0] === "em")
                           return (
-                            <h5 className="">
+                            <h5 className="flex items-center">
+                              <span className="mr-2">
+                                {getIconsByName("ri", "RiMailFill")}
+                              </span>
                               <a href={"mailto:" + kv[1]}>{kv[1]}</a>
                             </h5>
                           );
                         if (kv[0] === "ig")
                           return (
-                            <h5 className="">
+                            <h5 className="flex items-center">
+                              <span className="mr-2">
+                                {getIconsByName(
+                                  "ri",
+                                  "RiInstagramFill",
+                                  "24px",
+                                  "#FF0093"
+                                )}
+                              </span>
                               <a
                                 href={
                                   kv[1][0] === "@"
@@ -176,7 +301,15 @@ export default function AgAd({
                           );
                         if (kv[0] === "fb")
                           return (
-                            <h5 className="">
+                            <h5 className="flex items-center">
+                              <span className="mr-2">
+                                {getIconsByName(
+                                  "ri",
+                                  "RiFacebookBoxFill",
+                                  "24px",
+                                  "#0676E8"
+                                )}
+                              </span>
                               <a href={"https://www.facebook.com/" + kv[1]}>
                                 {kv[1]}
                               </a>
@@ -187,13 +320,24 @@ export default function AgAd({
                         let kv = sn.split(":");
                         if (kv[0] === "em")
                           return (
-                            <h4 className="">
+                            <h4 className="flex items-center">
+                              <span className="mr-2">
+                                {getIconsByName("ri", "RiMailFill")}
+                              </span>
                               <a href={"mailto:" + kv[1]}>{kv[1]}</a>
                             </h4>
                           );
                         if (kv[0] === "ig")
                           return (
-                            <h4 className="">
+                            <h4 className="flex items-center">
+                              <span className="mr-2">
+                                {getIconsByName(
+                                  "ri",
+                                  "RiInstagramFill",
+                                  "24px",
+                                  "#FF0093"
+                                )}
+                              </span>
                               <a
                                 href={
                                   kv[1][0] === "@"
@@ -208,7 +352,15 @@ export default function AgAd({
                           );
                         if (kv[0] === "fb")
                           return (
-                            <h4 className="">
+                            <h4 className="flex items-center">
+                              <span className="mr-2">
+                                {getIconsByName(
+                                  "ri",
+                                  "RiFacebookBoxFill",
+                                  "24px",
+                                  "#0676E8"
+                                )}
+                              </span>
                               <a href={"https://www.facebook.com/" + kv[1]}>
                                 {kv[1]}
                               </a>
@@ -219,13 +371,24 @@ export default function AgAd({
                         let kv = sn.split(":");
                         if (kv[0] === "em")
                           return (
-                            <h3 className="">
+                            <h3 className="flex items-center">
+                              <span className="mr-2">
+                                {getIconsByName("ri", "RiMailFill")}
+                              </span>
                               <a href={"mailto:" + kv[1]}>{kv[1]}</a>
                             </h3>
                           );
                         if (kv[0] === "ig")
                           return (
-                            <h3 className="">
+                            <h3 className="flex items-center">
+                              <span className="mr-2">
+                                {getIconsByName(
+                                  "ri",
+                                  "RiInstagramFill",
+                                  "24px",
+                                  "#FF0093"
+                                )}
+                              </span>
                               <a
                                 href={
                                   kv[1][0] === "@"
@@ -240,7 +403,15 @@ export default function AgAd({
                           );
                         if (kv[0] === "fb")
                           return (
-                            <h3 className="">
+                            <h3 className="flex items-center">
+                              <span className="mr-2">
+                                {getIconsByName(
+                                  "ri",
+                                  "RiFacebookBoxFill",
+                                  "24px",
+                                  "#0676E8"
+                                )}
+                              </span>
                               <a href={"https://www.facebook.com/" + kv[1]}>
                                 {kv[1]}
                               </a>
@@ -251,13 +422,24 @@ export default function AgAd({
                       let kv = sn.split(":");
                       if (kv[0] === "em")
                         return (
-                          <h4 className="">
+                          <h4 className="flex items-center">
+                            <span className="mr-2">
+                              {getIconsByName("ri", "RiMailFill")}
+                            </span>
                             <a href={"mailto:" + kv[1]}>{kv[1]}</a>
                           </h4>
                         );
                       if (kv[0] === "ig")
                         return (
-                          <h4 className="">
+                          <h4 className="flex items-center">
+                            <span className="mr-2">
+                              {getIconsByName(
+                                "ri",
+                                "RiInstagramFill",
+                                "24px",
+                                "#FF0093"
+                              )}
+                            </span>
                             <a
                               href={
                                 kv[1][0] === "@"
@@ -272,8 +454,37 @@ export default function AgAd({
                         );
                       if (kv[0] === "fb")
                         return (
-                          <h4 className="">
+                          <h4 className="flex items-center">
+                            <span className="mr-2">
+                              {getIconsByName(
+                                "ri",
+                                "RiFacebookBoxFill",
+                                "24px",
+                                "#0676E8"
+                              )}
+                            </span>
                             <a href={"https://www.facebook.com/" + kv[1]}>
+                              {kv[1]}
+                            </a>
+                          </h4>
+                        );
+                      if (kv[0] === "in")
+                        return (
+                          <h4 className="flex items-center">
+                            <span className="mr-2">
+                              {getIconsByName(
+                                "ri",
+                                "RiLinkedinBoxFill",
+                                "24px",
+                                "#0A66C2"
+                              )}
+                            </span>
+                            <a
+                              href={
+                                "https://www.linkedin.com/sharing/share-offsite/?url=https://www.linkedin.com/in/" +
+                                kv[1]
+                              }
+                            >
                               {kv[1]}
                             </a>
                           </h4>
@@ -309,33 +520,45 @@ export default function AgAd({
                     </p>
                   )
                 ) : null}
-                {data.address !== undefined || data.address !== "" ? (
+                {data.address !== undefined && data.address !== "" ? (
                   data.adFormatId === "611872d13a1f1854a4681008" ? (
                     <h5
                       style={{ fontFamily: "Playfair Display" }}
-                      className="italic"
+                      className="italic flex items-center"
                     >
+                      <span className="mr-2">
+                        {getIconsByName("ri", "RiMapPinFill")}
+                      </span>
                       {data.address}
                     </h5>
                   ) : data.adFormatId === "6209b62804dbe50016b07ccc" ? (
                     <h4
                       style={{ fontFamily: "Playfair Display" }}
-                      className="italic"
+                      className="italic flex items-center"
                     >
+                      <span className="mr-2">
+                        {getIconsByName("ri", "RiMapPinFill")}
+                      </span>
                       {data.address}
                     </h4>
                   ) : data.adFormatId === "620ad11413589700166baf4c" ? (
                     <h3
                       style={{ fontFamily: "Playfair Display" }}
-                      className="italic"
+                      className="italic flex items-center"
                     >
+                      <span className="mr-2">
+                        {getIconsByName("ri", "RiMapPinFill")}
+                      </span>
                       {data.address}
                     </h3>
                   ) : (
                     <h5
                       style={{ fontFamily: "Playfair Display" }}
-                      className="italic"
+                      className="italic flex items-center"
                     >
+                      <span className="mr-2">
+                        {getIconsByName("ri", "RiMapPinFill")}
+                      </span>
                       {data.address}
                     </h5>
                   )

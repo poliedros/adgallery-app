@@ -25,8 +25,8 @@ const Home: NextPage = () => {
       </Script>{" "}
       {/* bg-slate-900 */}
       <Head>
-        <title>Infop - São João Nepomuceno</title>
-        <meta name="description" content="CZAR+ Adgallery" />
+        <title>Jornal Opção</title>
+        <meta name="description" content="CZAR+ Opção" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       {/* <Erase /> */}

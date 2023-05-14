@@ -55,6 +55,7 @@ export default function AgModalBase({
         size="lg"
         aria-labelledby="contained-modal-title-vcenter"
         centered
+        // className="swing-in-bottom-bck"
       >
         <Modal.Header
           className="border-0 z-10 flex flex-col-reverse"
@@ -129,11 +130,11 @@ export default function AgModalBase({
             )}
           </div>
         </Modal.Body>
-        <Modal.Footer className="border-0 !justify-center !p-0">
+        <Modal.Footer className="border-0 !justify-center !p-0 ">
           {/* <Button className="!rounded-none !m-0" onClick={onHide}>
                         {translations.close["pt"]}
                     </Button> */}
-          <CapBtn kind="close" css="!m-0" click={onHide} />
+          <CapBtn kind="close" css="!m-0 swing-in-bottom-bck " click={onHide} />
         </Modal.Footer>
       </Modal>
     </>

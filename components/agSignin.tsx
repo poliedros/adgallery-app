@@ -23,6 +23,7 @@ export default function AgSignin() {
         <Button
           className="!rounded-none !flex items-center"
           variant="primary"
+          disabled
           /* type="submit" */ onClick={() => Router.push("/account")}
         >
           {getIconsByName("bi", "BiLogInCircle")} &nbsp;{" "}

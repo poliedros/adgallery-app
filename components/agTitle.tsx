@@ -1,4 +1,8 @@
+import { Button, Col, Overlay, Row, Tooltip } from "react-bootstrap";
 import Container from "react-bootstrap/Container";
+import getIconsByName from "../functions/getIconsByName";
+import { useRef, useState } from "react";
+import Animation from "./Animation";
 
 export default function AgTitle() {
   const minute = 1000 * 60;
@@ -79,8 +83,48 @@ export default function AgTitle() {
     return Array(+digits.join("") + 1).join("M") + roman;
   }
 
+  const renderTooltip = (props: any) => (
+    <Tooltip id="button-tooltip" {...props}>
+      Simple tooltip
+    </Tooltip>
+  );
+  const [show, setShow] = useState(false);
+  const target = useRef(null);
+
   return (
     <>
+      {/* <Animation />
+      <Row>
+        <Col></Col>
+        <Col className="flex justify-center">
+          <div className="fixed top-[37vh] z-10">
+            <Button
+              ref={target}
+              onClick={() => setShow(!show)}
+              className="!flex items-center rounded-0"
+              variant="info"
+            >
+              {getIconsByName("bs", "BsFillChatDotsFill")} &nbsp; Conversar
+            </Button>
+          </div>
+        </Col>
+      </Row>
+      <Overlay target={target.current} show={show} placement="bottom">
+        {(props) => (
+          <Tooltip id="overlay-example" {...props} className="rounded-0">
+            <div className="flex flex-col">
+              <Button className="m-1 !flex items-center rounded-0">
+                {getIconsByName("bs", "BsFillChatDotsFill")} &nbsp; Conversar
+              </Button>
+              <Button className="m-1 rounded-0">
+                Fazer uma pergunta de multiplaescolha
+              </Button>
+              <Button className="m-1 rounded-0">Pedir informações</Button>
+              <Button className="m-1 rounded-0">Anunciar no OPÇÃO</Button>
+            </div>
+          </Tooltip>
+        )}
+      </Overlay> */}
       <Container className="text-center align-middle">
         <div className="h-screen flex justify-center items-center flex-column">
           <h3>O seu guia de compras</h3>
@@ -99,38 +143,57 @@ export default function AgTitle() {
           >
             Opção
           </h1>
-          <h5>
+          <h5 style={{ fontFamily: "Montserrat" }}>
             {monthDiff(efirst, today)}ª Edição <b>· {month}</b> de {yyyy}{" "}
-            <span style={{ fontFamily: "Playfair Display" }} className="italic">
+            <span
+              style={{ fontFamily: "Playfair Display" }}
+              className="italic text-slate-200"
+            >
               versão virtual
             </span>{" "}
             <br />
           </h5>
-          <h5>
-            <span style={{ fontFamily: "Playfair Display" }} className="italic">
-              Rosa Maria ·
-            </span>
-            {/* <email> */} informativoopcao@gmail.com{/* </email> */}{" "}
-            <b>· 98898-6305</b>{" "}
+          <h5 style={{ fontFamily: "Montserrat" }}>
+            <span
+              style={{ fontFamily: "Playfair Display" }}
+              className="italic text-lime-400"
+            >
+              Rosa Maria
+            </span>{" "}
+            <b>·</b>
+            {/* <email> */}{" "}
+            <a href={"mailto:informativoopcao@gmail.com"}>
+              informativoopcao@gmail.com
+            </a>
+            {/* </email> */}{" "}
+            <b>
+              · <a href={"tel:98898-6305"}>98898-6305</a>
+            </b>{" "}
             <span style={{ fontFamily: "Playfair Display" }} className="italic">
               oi
             </span>{" "}
-            <b>· 99920-3720</b>{" "}
+            <b>
+              · <a href={"tel:99920-3720"}>99920-3720</a>
+            </b>{" "}
             <span style={{ fontFamily: "Playfair Display" }} className="italic">
               vivo
             </span>
           </h5>
         </div>
-        <h5>
+        <h5 className="mt-6">
           <sub>
             <b className="font-[Playfair] uppercase">Opção</b>
           </sub>
         </h5>
-        <h3>
+        <h3 style={{ fontFamily: "Montserrat" }}>
           {month} de 20<b>{yyyy.toString().slice(2)}</b>
         </h3>
-        <hr /* size="2" width="5%" color="greenyellow" */ />
-        <h6>
+        <div className="flex justify-center">
+          <div
+            className="border-t-2 border-lime-400 my-4 w-40" /* size="2" width="5%" color="greenyellow" */
+          />
+        </div>
+        <h6 style={{ fontFamily: "Montserrat" }} className="mb-9">
           Informativo - Ano{" "}
           {romanize(today.getFullYear() - first.getFullYear())} - <b>{month}</b>{" "}
           de {yyyy} - Nº {romanize(monthDiff(first, today))} <br />
