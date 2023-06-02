@@ -11,7 +11,7 @@ import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
 export default function Animation() {
   useEffect(() => {
     var scene = new THREE.Scene();
-    var camera = new THREE.PerspectiveCamera( 100, (window.innerWidth)/(window.innerHeight), 0.1, 900 );
+    var camera = new THREE.PerspectiveCamera( 100, (window.innerWidth)/(window.innerHeight), 0.1, 100 );
     
     var renderer = new THREE.WebGLRenderer({ alpha: true, antialiase: true });
     renderer.setClearColor( 0x000000, 0 );
@@ -42,12 +42,13 @@ export default function Animation() {
     var mixer;
     var model;
     loader.load(
-      "./standing_greeting.glb", function( gltf ) {
+      "./IdleU.glb", function( gltf ) {
 
         //shadows and materials
         gltf.scene.traverse( function( node ) {
             if ( node instanceof THREE.Mesh ) { 
               node.castShadow = true; 
+              node.receiveShadow = true;
               node.material.side = THREE.DoubleSide;
             }
           }

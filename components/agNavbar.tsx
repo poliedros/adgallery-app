@@ -117,6 +117,21 @@ export default function AgNavbar() {
               show={show7}
               overlay={renderTooltip}
             >
+              <Navbar.Brand
+                onClick={() => setShow7(!show7)}
+                className="m-0 pr-1.5"
+              >
+                {" "}
+                {/*href="#"*/}
+                {getIconsByName("ri", "RiUserSmileFill", "16px")}
+              </Navbar.Brand>
+            </OverlayTrigger>
+            <OverlayTrigger
+              placement="bottom"
+              //delay={{ show: 250, hide: 400 }}
+              show={show7}
+              overlay={renderTooltip}
+            >
               <Navbar.Brand onClick={() => setShow7(!show7)} className="m-0">
                 {" "}
                 {/*href="#"*/}

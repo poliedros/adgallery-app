@@ -2,7 +2,7 @@ import { Button, Col, Overlay, Row, Tooltip } from "react-bootstrap";
 import Container from "react-bootstrap/Container";
 import getIconsByName from "../functions/getIconsByName";
 import { useRef, useState } from "react";
-import Animation from "./Animation";
+import Animation from "./Animation/Animation";
 
 export default function AgTitle() {
   const minute = 1000 * 60;
@@ -127,7 +127,12 @@ export default function AgTitle() {
       </Overlay> */}
       <Container className="text-center align-middle">
         <div className="h-screen flex justify-center items-center flex-column">
-          <h3>O seu guia de compras</h3>
+          <h5
+            style={{ fontFamily: "Montserrat" }}
+            className="uppercase tracking-widest"
+          >
+            O seu guia de compras
+          </h5>
           {/* <h1 className="font-[Jost] unselectable text-[10rem]">
             <span className="font-thin">G</span>
             <span className="font-extralight">A</span>
@@ -193,7 +198,10 @@ export default function AgTitle() {
             className="border-t-2 border-lime-400 my-4 w-40" /* size="2" width="5%" color="greenyellow" */
           />
         </div>
-        <h6 style={{ fontFamily: "Montserrat" }} className="mb-9">
+        <h6
+          style={{ fontFamily: "Montserrat" }}
+          className="mb-9 uppercase tracking-widest"
+        >
           Informativo - Ano{" "}
           {romanize(today.getFullYear() - first.getFullYear())} - <b>{month}</b>{" "}
           de {yyyy} - Nº {romanize(monthDiff(first, today))} <br />
