@@ -203,8 +203,9 @@ export default function AgTitle() {
           className="mb-9 uppercase tracking-widest"
         >
           Informativo - Ano{" "}
-          {romanize(today.getFullYear() - first.getFullYear())} - <b>{month}</b>{" "}
-          de {yyyy} - Nº {romanize(monthDiff(first, today))} <br />
+          {romanize(today.getFullYear() - first.getFullYear() - 1)} -{" "}
+          <b>{month}</b> de {yyyy} - Nº {romanize(monthDiff(first, today))}{" "}
+          <br />
           São João Nepomuceno e Região - Minas Gerais <br />
         </h6>
       </Container>

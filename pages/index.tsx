@@ -9,7 +9,9 @@ const GA_TRACKING_ID = "G-Z27Y9XMDSZ";
 
 const Home: NextPage = () => {
   return (
-    <div className="bg-[#524630] text-white">
+    <div className="bg-[#863F43] text-white">
+      {" "}
+      {/*#524630*/}
       <Script
         src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`}
         strategy="afterInteractive"
