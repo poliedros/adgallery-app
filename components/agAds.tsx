@@ -51,7 +51,13 @@ export default function AgAds({
                   //}
                 >
                   <Card.Body>
-                    <img src={ad.urls[0]} className="-mt-4" />
+                    <img
+                      src={ad.urls[0]}
+                      className="-mt-4"
+                      onLoad={() => {
+                        <h2>carregando</h2>;
+                      }}
+                    />
                     <Card.Title>{ad.description}</Card.Title>
                     <div className="flex flex-column items-end">
                       <CapBtn

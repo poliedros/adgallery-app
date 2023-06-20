@@ -1,8 +1,9 @@
-import { Button, Col, Overlay, Row, Tooltip } from "react-bootstrap";
+import { Button, Col, Form, Overlay, Row, Tooltip } from "react-bootstrap";
 import Container from "react-bootstrap/Container";
 import getIconsByName from "../functions/getIconsByName";
 import { useRef, useState } from "react";
 import Animation from "./Animation/Animation";
+import { url } from "inspector";
 
 export default function AgTitle() {
   const minute = 1000 * 60;
@@ -127,10 +128,7 @@ export default function AgTitle() {
       </Overlay> */}
       <Container className="text-center align-middle">
         <div className="h-screen flex justify-center items-center flex-column">
-          <h5
-            style={{ fontFamily: "Montserrat" }}
-            className="uppercase tracking-widest"
-          >
+          <h5 className="font-[Montserrat] uppercase tracking-widest unselectable">
             O seu guia de compras
           </h5>
           {/* <h1 className="font-[Jost] unselectable text-[10rem]">
@@ -142,27 +140,18 @@ export default function AgTitle() {
             <span className="font-extralight">I</span>
             <span className="font-thin">A</span>
           </h1> */}
-          <h1
-            style={{ fontFamily: "Playfair Display" }}
-            className="font-bold unselectable text-[25vw] tracking-tight uppercase titleLg"
-          >
+          <h1 className="font-['Playfair_Display'] font-bold unselectable text-[25vw] tracking-tight uppercase titleLg hover:ping">
             Opção
           </h1>
-          <h5 style={{ fontFamily: "Montserrat" }}>
+          <h5 className="font-[Montserrat] unselectable">
             {monthDiff(efirst, today)}ª Edição <b>· {month}</b> de {yyyy}{" "}
-            <span
-              style={{ fontFamily: "Playfair Display" }}
-              className="italic text-slate-200"
-            >
+            <span className="font-['Playfair_Display'] italic text-slate-200">
               versão virtual
             </span>{" "}
             <br />
           </h5>
-          <h5 style={{ fontFamily: "Montserrat" }}>
-            <span
-              style={{ fontFamily: "Playfair Display" }}
-              className="italic text-lime-400"
-            >
+          <h5 className="font-[Montserrat] unselectable">
+            <span className="font-['Playfair_Display'] italic text-lime-400">
               Rosa Maria
             </span>{" "}
             <b>·</b>
@@ -174,23 +163,19 @@ export default function AgTitle() {
             <b>
               · <a href={"tel:98898-6305"}>98898-6305</a>
             </b>{" "}
-            <span style={{ fontFamily: "Playfair Display" }} className="italic">
-              oi
-            </span>{" "}
+            <span className="font-['Playfair_Display'] italic">oi</span>{" "}
             <b>
               · <a href={"tel:99920-3720"}>99920-3720</a>
             </b>{" "}
-            <span style={{ fontFamily: "Playfair Display" }} className="italic">
-              vivo
-            </span>
+            <span className="font-['Playfair_Display'] italic">vivo</span>
           </h5>
         </div>
-        <h5 className="mt-6">
+        <h5 className="mt-24 unselectable">
           <sub>
             <b className="font-[Playfair] uppercase">Opção</b>
           </sub>
         </h5>
-        <h3 style={{ fontFamily: "Montserrat" }}>
+        <h3 className="font-[Montserrat] unselectable">
           {month} de 20<b>{yyyy.toString().slice(2)}</b>
         </h3>
         <div className="flex justify-center">
@@ -198,13 +183,19 @@ export default function AgTitle() {
             className="border-t-2 border-lime-400 my-4 w-40" /* size="2" width="5%" color="greenyellow" */
           />
         </div>
-        <h6
-          style={{ fontFamily: "Montserrat" }}
-          className="mb-9 uppercase tracking-widest"
-        >
+        <h6 className="font-[Montserrat] mb-9 uppercase tracking-widest unselectable">
           Informativo - Ano{" "}
-          {romanize(today.getFullYear() - first.getFullYear() - 1)} -{" "}
-          <b>{month}</b> de {yyyy} - Nº {romanize(monthDiff(first, today))}{" "}
+          {romanize(
+            today.getFullYear() -
+              first.getFullYear() -
+              (today.getMonth() === 9 ||
+              today.getMonth() === 10 ||
+              today.getMonth() === 11 ||
+              today.getMonth() === 12
+                ? 0
+                : 1)
+          )}{" "}
+          - <b>{month}</b> de {yyyy} - Nº {romanize(monthDiff(first, today))}{" "}
           <br />
           São João Nepomuceno e Região - Minas Gerais <br />
         </h6>

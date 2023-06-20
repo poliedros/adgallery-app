@@ -15,6 +15,7 @@ export default function AgNavbar() {
   const [show5, setShow5] = useState(false);
   const [show6, setShow6] = useState(false);
   const [show7, setShow7] = useState(false);
+  const [show8, setShow8] = useState(false);
 
   const renderTooltip = (props: any) => (
     <Tooltip id="button-tooltip" {...props}>
@@ -129,10 +130,10 @@ export default function AgNavbar() {
             <OverlayTrigger
               placement="bottom"
               //delay={{ show: 250, hide: 400 }}
-              show={show7}
+              show={show8}
               overlay={renderTooltip}
             >
-              <Navbar.Brand onClick={() => setShow7(!show7)} className="m-0">
+              <Navbar.Brand onClick={() => setShow8(!show8)} className="m-0">
                 {" "}
                 {/*href="#"*/}
                 {getIconsByName("md", "MdWavingHand", "16px")}

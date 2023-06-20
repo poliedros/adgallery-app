@@ -8,10 +8,7 @@ export default function AgFootNotes() {
   return (
     <>
       {/* getIconsByName("ri", "RiHomeSmileFill", "72px") */}
-      <Container
-        style={{ fontFamily: "Montserrat" }}
-        className="flex flex-col uppercase tracking-widest justify-center text-center w-screen align-middle mt-6 pb-3"
-      >
+      <Container className="font-[Montserrat] flex flex-col uppercase tracking-widest justify-center text-center w-screen align-middle mt-6 pb-3 unselectable">
         <h6 className="flex items-center justify-center content-footer">
           Desenvolvido por{" "}
           <a

@@ -20,9 +20,14 @@ export default function AgAdElement({ ad }: { ad: any }) {
         />*/}
       <img
         className="w-[100%]"
+        // width={900}
+        // height={900}
         src={ad.urls[0]}
         alt={ad.description}
         onClick={() => setOpenModal(true)}
+        onLoad={() => {
+          <h2>carregando</h2>;
+        }}
       />
       <AgModalBase
         show={openModal}

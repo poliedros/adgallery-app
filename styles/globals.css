@@ -4,10 +4,24 @@
 
 /* CSS mine */
 
+.unselectable {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
 .btn-close {
     border-radius: 100% !important;
     -webkit-animation: roll-in-top 1.2s ease-out both;
 	        animation: roll-in-top 1.2s ease-out both;
+}
+
+.form-check-input:checked {
+  background-color: #43ff64d9 !important;
+  border-color: #43ff64d9 !important;
 }
 
 .roll-in-top {

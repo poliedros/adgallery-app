@@ -12,7 +12,7 @@ export default function Animation() {
   if (typeof window !== "undefined") {
   if(typeof document !== 'undefined') {
     var scene = new THREE.Scene();
-    var camera = new THREE.PerspectiveCamera( 400, window.innerWidth/window.innerHeight, 0.1, 5 );
+    var camera = new THREE.PerspectiveCamera( 400, window.innerWidth/window.innerHeight, 0.001, 5000 );
     
     var renderer = new THREE.WebGLRenderer({ alpha: true, antialiase: true });
     renderer.setClearColor( 0x000000, 0 );
@@ -21,13 +21,13 @@ export default function Animation() {
    
     document.body.appendChild(renderer.domElement);
 
-    camera.position.y = 0.03;
-    camera.position.z = 0.2;
+    camera.position.y = 0.4;
+    camera.position.z = 2;
 
-    var light = new THREE.DirectionalLight(0xefefff, 3);
+    var light = new THREE.DirectionalLight(0xefefff, 1);
     light.position.set(1, 1, 1).normalize();
     scene.add(light);
-    var light = new THREE.DirectionalLight(0xffefef, 3);
+    var light = new THREE.DirectionalLight(0xffefef, 1);
     light.position.set(-1, -1, -1).normalize();
     scene.add(light);
 
@@ -43,7 +43,7 @@ export default function Animation() {
     var mixer;
     var model;
     loader.load(
-      "./chalkboard-es.glb", function( gltf ) {
+      "./summer_girl.glb", function( gltf ) {
 
         // shadows and materials
         gltf.scene.traverse( function( node ) {
@@ -55,13 +55,13 @@ export default function Animation() {
         );
 
         model = gltf.scene;
-        model.scale.set(0.25,0.25,0.25);
+        model.scale.set(0.25, 0.25, 0.25);
         scene.add(model);
 
         console.log(gltf);
 
         mixer = new THREE.AnimationMixer(model);
-        // mixer.clipAction(gltf.animations[0]).play();
+        mixer.clipAction(gltf.animations[0]).play();
 
         document.body.addEventListener("click", kill);
         function kill() {
@@ -74,7 +74,7 @@ export default function Animation() {
       requestAnimationFrame(render);
       var delta = clock.getDelta();
       if (mixer != null) mixer.update(delta);
-      if (model) model.rotation.y += 0.01;
+      // if (model) model.rotation.y += 0.01;
 
       renderer.render(scene, camera);
     }
