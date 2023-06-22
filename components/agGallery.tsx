@@ -1,4 +1,12 @@
-import { Button, Col, Container, Form, Row } from "react-bootstrap";
+import {
+  Button,
+  Col,
+  Container,
+  Form,
+  OverlayTrigger,
+  Row,
+  Tooltip,
+} from "react-bootstrap";
 
 import { Responsive, WidthProvider } from "react-grid-layout";
 const ResponsiveReactGridLayout = WidthProvider(Responsive);
@@ -49,6 +57,7 @@ export default function AgGallery() {
   }[] {
     let layout: { i: string; x: number; y: number; w: number; h: number }[] =
       [];
+
     adsFinal?.map((ad, i, elem) => {
       i % 2 == 0
         ? adFormatsFinal
@@ -188,10 +197,75 @@ export default function AgGallery() {
     return Array.from(new Set(array));
   }
 
+  let layout1: { i: string; x: number; y: number; w: number; h: number }[] = [];
+
+  ads
+    ? ads.map(function myFunction(value, index, array) {
+        if (index % 2 == 0)
+          adFormats
+            ? layout1.push({
+                i: value._id,
+                x: value.order.x,
+                y: value.order.y,
+                w: adFormats.filter((af) => af._id == value.adFormatId)[0]
+                  ? adFormats.filter((af) => af._id == value.adFormatId)[0]
+                      ?.width ?? 6
+                  : 6,
+                h: adFormats.filter((af) => af._id == value.adFormatId)[0]
+                  ? adFormats.filter((af) => af._id == value.adFormatId)[0]
+                      ?.height ?? 1
+                  : 1,
+              })
+            : null;
+        else
+          adFormats
+            ? layout1.push({
+                i: value._id,
+                x: value.order.x,
+                y: value.order.y,
+                w: adFormats.filter((af) => af._id == value.adFormatId)[0]
+                  ? adFormats.filter((af) => af._id == value.adFormatId)[0]
+                      ?.width ?? 6
+                  : 6,
+                h: adFormats.filter((af) => af._id == value.adFormatId)[0]
+                  ? adFormats.filter((af) => af._id == value.adFormatId)[0]
+                      ?.height ?? 2
+                  : 2,
+              })
+            : null;
+      })
+    : null;
+
+  let layout = { lg: layout1 };
+
+  const renderTooltipSJN = (props: any) => (
+    <Tooltip id="button-tooltip" {...props}>
+      São João Nepomuceno
+    </Tooltip>
+  );
+
+  const renderTooltipDes = (props: any) => (
+    <Tooltip id="button-tooltip" {...props}>
+      Descoberto
+    </Tooltip>
+  );
+
+  const renderTooltipSJDR = (props: any) => (
+    <Tooltip id="button-tooltip" {...props}>
+      São João del-Rei
+    </Tooltip>
+  );
+
+  const renderTooltipRP = (props: any) => (
+    <Tooltip id="button-tooltip" {...props}>
+      Rio Pomba
+    </Tooltip>
+  );
+
   if (!ads || !adFormats) {
     return (
       <>
-        <div className="flex items-center items-center">
+        <div className="flex items-center justify-center">
           <h2>Carregando</h2>
         </div>
       </>
@@ -230,78 +304,104 @@ export default function AgGallery() {
           <Row className="flex justify-center items-center mb-3 flex-col md:flex-row">
             <Col className="flex items-center justify-center">
               <h6 className="m-0 hidden md:flex">cidade</h6>
-              <Button
-                className={
-                  "!rounded-full !p-0 w-[45px] h-[45px] border-0 mx-3 " +
-                  (city === "São João Nepomuceno" || city === "all"
-                    ? "grayscale-0"
-                    : "grayscale")
-                }
-                style={{
-                  backgroundImage: "url('./sjn.jpg')",
-                  backgroundRepeat: "no-repeat",
-                  backgroundSize: "auto 100%",
-                  backgroundPosition: "center center",
-                }}
-                onClick={() =>
-                  city === "São João Nepomuceno"
-                    ? setCity("all")
-                    : setCity("São João Nepomuceno")
-                }
-              ></Button>
-              <Button
-                className={
-                  "!rounded-full !p-0 w-[45px] h-[45px] border-0 mr-3 " +
-                  (city === "Descoberto" || city === "all"
-                    ? "grayscale-0"
-                    : "grayscale")
-                }
-                style={{
-                  backgroundImage: "url('./desc.png')",
-                  backgroundRepeat: "no-repeat",
-                  backgroundSize: "auto 100%",
-                  backgroundPosition: "center center",
-                }}
-                onClick={() =>
-                  city === "Descoberto" ? setCity("all") : setCity("Descoberto")
-                }
-              ></Button>
-              <Button
-                className={
-                  "!rounded-full !p-0 w-[45px] h-[45px] border-0 mr-3 " +
-                  (city === "São João del-Rei" || city === "all"
-                    ? "grayscale-0"
-                    : "grayscale")
-                }
-                style={{
-                  backgroundImage: "url('./sjdr.jpg')",
-                  backgroundRepeat: "no-repeat",
-                  backgroundSize: "auto 100%",
-                  backgroundPosition: "center center",
-                }}
-                onClick={() =>
-                  city === "São João del-Rei"
-                    ? setCity("all")
-                    : setCity("São João del-Rei")
-                }
-              ></Button>
-              <Button
-                className={
-                  "!rounded-full !p-0 w-[45px] h-[45px] border-0 " +
-                  (city === "Rio Pomba" || city === "all"
-                    ? "grayscale-0"
-                    : "grayscale")
-                }
-                style={{
-                  backgroundImage: "url('./rp.jpg')",
-                  backgroundRepeat: "no-repeat",
-                  backgroundSize: "auto 100%",
-                  backgroundPosition: "center center",
-                }}
-                onClick={() =>
-                  city === "Rio Pomba" ? setCity("all") : setCity("Rio Pomba")
-                }
-              ></Button>
+              <OverlayTrigger
+                placement="bottom"
+                delay={{ show: 250, hide: 400 }}
+                overlay={renderTooltipSJN}
+              >
+                <Button
+                  className={
+                    "!rounded-full !p-0 w-[45px] h-[45px] border-0 mx-3 " +
+                    (city === "São João Nepomuceno" || city === "all"
+                      ? "grayscale-0"
+                      : "grayscale")
+                  }
+                  style={{
+                    backgroundImage: "url('./sjn.jpg')",
+                    backgroundRepeat: "no-repeat",
+                    backgroundSize: "auto 100%",
+                    backgroundPosition: "center center",
+                  }}
+                  onClick={() =>
+                    city === "São João Nepomuceno"
+                      ? setCity("all")
+                      : setCity("São João Nepomuceno")
+                  }
+                ></Button>
+              </OverlayTrigger>
+              <OverlayTrigger
+                placement="bottom"
+                delay={{ show: 250, hide: 400 }}
+                overlay={renderTooltipDes}
+              >
+                <Button
+                  className={
+                    "!rounded-full !p-0 w-[45px] h-[45px] border-0 mr-3 " +
+                    (city === "Descoberto" || city === "all"
+                      ? "grayscale-0"
+                      : "grayscale")
+                  }
+                  style={{
+                    backgroundImage: "url('./desc.png')",
+                    backgroundRepeat: "no-repeat",
+                    backgroundSize: "auto 100%",
+                    backgroundPosition: "center center",
+                  }}
+                  onClick={() =>
+                    city === "Descoberto"
+                      ? setCity("all")
+                      : setCity("Descoberto")
+                  }
+                ></Button>
+              </OverlayTrigger>
+              <OverlayTrigger
+                placement="bottom"
+                delay={{ show: 250, hide: 400 }}
+                overlay={renderTooltipSJDR}
+              >
+                <Button
+                  className={
+                    "!rounded-full !p-0 w-[45px] h-[45px] border-0 mr-3 " +
+                    (city === "São João del-Rei" || city === "all"
+                      ? "grayscale-0"
+                      : "grayscale")
+                  }
+                  style={{
+                    backgroundImage: "url('./sjdr.jpg')",
+                    backgroundRepeat: "no-repeat",
+                    backgroundSize: "auto 100%",
+                    backgroundPosition: "center center",
+                  }}
+                  onClick={() =>
+                    city === "São João del-Rei"
+                      ? setCity("all")
+                      : setCity("São João del-Rei")
+                  }
+                ></Button>
+              </OverlayTrigger>
+              <OverlayTrigger
+                placement="bottom"
+                delay={{ show: 250, hide: 400 }}
+                overlay={renderTooltipRP}
+              >
+                <Button
+                  className={
+                    "!rounded-full !p-0 w-[45px] h-[45px] border-0 " +
+                    (city === "Rio Pomba" || city === "all"
+                      ? "grayscale-0"
+                      : "grayscale")
+                  }
+                  style={{
+                    backgroundImage: "url('./rp.jpg')",
+                    backgroundRepeat: "no-repeat",
+                    backgroundSize: "auto 100%",
+                    backgroundPosition: "center center",
+                  }}
+                  onClick={() =>
+                    city === "Rio Pomba" ? setCity("all") : setCity("Rio Pomba")
+                  }
+                ></Button>
+              </OverlayTrigger>
             </Col>
             {/* <Col>
               <Form.Select
@@ -336,7 +436,7 @@ export default function AgGallery() {
         {JSON.stringify(adFormatsFinal)}
         <p>---</p>
         {JSON.stringify(layoutFinal)} */}
-        {RenderGallery(adsFinal, adFormatsFinal, layoutFinal)}
+        {RenderGallery(adsFinal, adFormatsFinal, layout ? layout : layoutFinal)}
         {/* {generateGrid()} */}
       </Container>
     </>
