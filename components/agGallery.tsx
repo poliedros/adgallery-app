@@ -18,6 +18,7 @@ import { AdFormatDTO } from "../pages/api/adformats";
 import AgAdElement from "./agAdElement";
 import { SetStateAction, useEffect, useState } from "react";
 import RenderGallery from "./renderGallery";
+import { First } from "react-bootstrap/esm/PageItem";
 
 export type cityValues =
   | "all"
@@ -262,11 +263,22 @@ export default function AgGallery() {
     </Tooltip>
   );
 
+  const [first, setFirst] = useState(true);
+
+  function firstTime() {
+    if (first) {
+      setFirst(false);
+      return layout;
+    } else {
+      return layoutFinal;
+    }
+  }
+
   if (!ads || !adFormats) {
     return (
       <>
         <div className="flex items-center justify-center">
-          <h2>Carregando</h2>
+          <h2 className="animate-pulse">Carregando</h2>
         </div>
       </>
     );
@@ -431,12 +443,13 @@ export default function AgGallery() {
             </Col>
           </Row>
         </Form>
+        {/* {JSON.stringify(layout)} */}
         {/* {JSON.stringify(adsFinal)}
         <p>---</p>
         {JSON.stringify(adFormatsFinal)}
         <p>---</p>
         {JSON.stringify(layoutFinal)} */}
-        {RenderGallery(adsFinal, adFormatsFinal, layout ? layout : layoutFinal)}
+        {RenderGallery(adsFinal, adFormatsFinal, firstTime())}
         {/* {generateGrid()} */}
       </Container>
     </>

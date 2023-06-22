@@ -26,7 +26,11 @@ export default function AgAdElement({ ad }: { ad: any }) {
         alt={ad.description}
         onClick={() => setOpenModal(true)}
         onLoad={() => {
-          <h2>carregando</h2>;
+          <>
+            <div className="flex items-center justify-center">
+              <h2 className="animate-pulse">Carregando</h2>
+            </div>
+          </>;
         }}
       />
       <AgModalBase
