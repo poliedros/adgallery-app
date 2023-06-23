@@ -274,6 +274,16 @@ export default function AgGallery() {
     }
   }
 
+  function defineAds() {
+    if (adsFinal) return adsFinal;
+    else return ads;
+  }
+
+  function defineAdFormats() {
+    if (adFormatsFinal) return adFormatsFinal;
+    else return adFormats;
+  }
+
   if (!ads || !adFormats) {
     return (
       <>
@@ -449,7 +459,7 @@ export default function AgGallery() {
         {JSON.stringify(adFormatsFinal)}
         <p>---</p>
         {JSON.stringify(layoutFinal)} */}
-        {RenderGallery(adsFinal, adFormatsFinal, firstTime())}
+        {RenderGallery(defineAds(), defineAdFormats(), firstTime())}
         {/* {generateGrid()} */}
       </Container>
     </>
