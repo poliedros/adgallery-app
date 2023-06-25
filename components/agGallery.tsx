@@ -259,15 +259,12 @@ export default function AgGallery() {
 
   const renderTooltipRP = (props: any) => (
     <Tooltip id="button-tooltip" {...props}>
-      Rio Pomba
+      Rio Pomba1
     </Tooltip>
   );
 
-  const [first, setFirst] = useState(true);
-
   function firstTime() {
-    if (first) {
-      setFirst(false);
+    if (layoutFinal.lg.length === 0) {
       return layout;
     } else {
       return layoutFinal;
@@ -284,7 +281,7 @@ export default function AgGallery() {
     else return adFormats;
   }
 
-  if (!ads || !adFormats) {
+  if (!ads && !adFormats) {
     return (
       <>
         <div className="flex items-center justify-center">
@@ -453,12 +450,13 @@ export default function AgGallery() {
             </Col>
           </Row>
         </Form>
-        {/* {JSON.stringify(layout)} */}
         {/* {JSON.stringify(adsFinal)}
         <p>---</p>
         {JSON.stringify(adFormatsFinal)}
         <p>---</p>
-        {JSON.stringify(layoutFinal)} */}
+        {JSON.stringify(layout)}
+        <p>---</p>
+        {JSON.stringify(layoutFinal)}*/}
         {RenderGallery(defineAds(), defineAdFormats(), firstTime())}
         {/* {generateGrid()} */}
       </Container>
