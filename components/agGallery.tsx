@@ -259,9 +259,32 @@ export default function AgGallery() {
 
   const renderTooltipRP = (props: any) => (
     <Tooltip id="button-tooltip" {...props}>
-      Rio Pomba1
+      Rio Pomba
     </Tooltip>
   );
+
+  function rearrangedLayout(layout: any) {
+    let count = 0;
+    let posX = 0;
+    let posY = 0;
+    if (layout.lg.length !== 0)
+      for (let i = 0; i < layout.lg.length; i++) {
+        if (layout.lg[i].w === 6 && layout.lg[i].h === 1)
+          if (posX === 0) {
+            layout.lg[i].x = posX;
+            posY = layout.lg[i].y;
+            posX = 6;
+          } else {
+            layout.lg[i].x = posX;
+            layout.lg[i].y = posY;
+            posX = 0;
+          } //count++;
+        if (layout.lg[i].w === 6 && layout.lg[i].h === 2) {
+        }
+      }
+    //return count;
+    return layout;
+  }
 
   function firstTime() {
     if (layoutFinal.lg.length === 0) {
@@ -398,7 +421,7 @@ export default function AgGallery() {
                   }
                 ></Button>
               </OverlayTrigger>
-              <OverlayTrigger
+              {/* <OverlayTrigger
                 placement="bottom"
                 delay={{ show: 250, hide: 400 }}
                 overlay={renderTooltipRP}
@@ -420,7 +443,7 @@ export default function AgGallery() {
                     city === "Rio Pomba" ? setCity("all") : setCity("Rio Pomba")
                   }
                 ></Button>
-              </OverlayTrigger>
+              </OverlayTrigger> */}
             </Col>
             {/* <Col>
               <Form.Select
@@ -457,6 +480,8 @@ export default function AgGallery() {
         {JSON.stringify(layout)}
         <p>---</p>
         {JSON.stringify(layoutFinal)}*/}
+        {/* {JSON.stringify(rearrangedLayout(layoutFinal))}
+        {JSON.stringify(layoutFinal)} */}
         {RenderGallery(defineAds(), defineAdFormats(), firstTime())}
         {/* {generateGrid()} */}
       </Container>

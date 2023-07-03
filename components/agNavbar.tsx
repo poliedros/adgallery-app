@@ -1,9 +1,18 @@
-import { Container, Navbar, OverlayTrigger, Tooltip } from "react-bootstrap";
+import {
+  Button,
+  Col,
+  Container,
+  Navbar,
+  Overlay,
+  OverlayTrigger,
+  Row,
+  Tooltip,
+} from "react-bootstrap";
 import translations from "../translations.json";
 import getIconsByName from "../functions/getIconsByName";
 
 import Router from "next/router";
-import { useState } from "react";
+import { useRef, useState } from "react";
 //import { useRouter } from "next/router";
 
 export default function AgNavbar() {
@@ -23,6 +32,8 @@ export default function AgNavbar() {
     </Tooltip>
   );
 
+  const target = useRef(null);
+
   return (
     <>
       <Navbar
@@ -35,11 +46,13 @@ export default function AgNavbar() {
           //style={{ display: "inline-block", textAlign: "left", width: "auto", justifyContent: "center", backgroundColor: "white" }}
         >
           <div className="flex items-center">
-            <Navbar.Brand className="m-0 pr-2" onClick={() => Router.push("/")}>
+            <Navbar.Brand className="m-0" onClick={() => Router.push("/")}>
+              {" "}
+              {/* pr-2 */}
               {getIconsByName("ri", "RiHome3Fill", "32px")}
             </Navbar.Brand>
 
-            <OverlayTrigger
+            {/* <OverlayTrigger
               placement="bottom"
               //delay={{ show: 250, hide: 400 }}
               show={show2}
@@ -47,12 +60,12 @@ export default function AgNavbar() {
             >
               <Navbar.Brand onClick={() => setShow2(!show2)} className="m-0">
                 {" "}
-                {/*href="#"*/}
+                {/*href="#"/}
                 {getIconsByName("ri", "RiMoneyDollarCircleFill", "32px")}
               </Navbar.Brand>
-            </OverlayTrigger>
+            </OverlayTrigger> */}
             <span className="text-black px-2">|</span>
-            <OverlayTrigger
+            {/* <OverlayTrigger
               placement="bottom"
               //delay={{ show: 250, hide: 400 }}
               show={show3}
@@ -63,7 +76,7 @@ export default function AgNavbar() {
                 className="m-0 pr-1.5"
               >
                 {" "}
-                {/*href="#"*/}
+                {/*href="#"/}
                 {getIconsByName("md", "MdBrightness4", "16px")}
               </Navbar.Brand>
             </OverlayTrigger>
@@ -78,7 +91,7 @@ export default function AgNavbar() {
                 className="m-0 pr-1.5"
               >
                 {" "}
-                {/*href="#"*/}
+                {/*href="#"/}
                 {getIconsByName("bs", "BsTranslate", "16px")}
               </Navbar.Brand>
             </OverlayTrigger>
@@ -93,7 +106,7 @@ export default function AgNavbar() {
                 className="m-0 pr-1.5"
               >
                 {" "}
-                {/*href="#"*/}
+                {/*href="#"/}
                 {getIconsByName("io", "IoMdRadio", "16px")}
               </Navbar.Brand>
             </OverlayTrigger>
@@ -108,7 +121,7 @@ export default function AgNavbar() {
                 className="m-0 pr-1.5"
               >
                 {" "}
-                {/*href="#"*/}
+                {/*href="#"/}
                 {getIconsByName("io5", "IoGameController", "16px")}
               </Navbar.Brand>
             </OverlayTrigger>
@@ -123,11 +136,11 @@ export default function AgNavbar() {
                 className="m-0 pr-1.5"
               >
                 {" "}
-                {/*href="#"*/}
+                {/*href="#"/}
                 {getIconsByName("ri", "RiUserSmileFill", "16px")}
               </Navbar.Brand>
-            </OverlayTrigger>
-            <OverlayTrigger
+            </OverlayTrigger> */}
+            {/* <OverlayTrigger
               placement="bottom"
               //delay={{ show: 250, hide: 400 }}
               show={show8}
@@ -135,10 +148,61 @@ export default function AgNavbar() {
             >
               <Navbar.Brand onClick={() => setShow8(!show8)} className="m-0">
                 {" "}
-                {/*href="#"*/}
+                {/*href="#"/}
                 {getIconsByName("md", "MdWavingHand", "16px")}
               </Navbar.Brand>
-            </OverlayTrigger>
+            </OverlayTrigger> */}
+            {/* <Row>
+              <Col></Col>
+              <Col className="flex justify-center">
+                <div className="fixed top-[37vh] z-10">
+                  <Button
+                    ref={target}
+                    onClick={() => setShow(!show)}
+                    className="!flex items-center rounded-0"
+                    variant="info"
+                  >
+                    {getIconsByName("bs", "BsFillChatDotsFill")} &nbsp;
+                    Conversar
+                  </Button>
+                </div>
+              </Col>
+            </Row> */}
+            <Navbar.Brand
+              ref={target}
+              onClick={() => setShow(!show)}
+              className="m-0"
+            >
+              {getIconsByName("bs", "BsFillChatDotsFill", "16px")}
+            </Navbar.Brand>
+            <Overlay target={target.current} show={show} placement="bottom">
+              {(props) => (
+                <Tooltip id="overlay-example" {...props} className="rounded-0">
+                  <div className="flex flex-col">
+                    <div className="flex items-center justify-center m-2">
+                      <div className="bg-orange-300 rounded-full p-2 mr-2">
+                        {getIconsByName("fa", "FaRobot", "32px", "white")}
+                      </div>
+                      {/* <div className="bg-orange-200 rounded-full p-2 mr-1">
+                        {getIconsByName("fa", "FaSmileWink", "24px", "white")}
+                      </div> */}
+                      <div className="bg-orange-300 rounded-2xl p-2 w-auto text-white">
+                        Embreve estarei funcionando
+                      </div>
+                    </div>
+                    {/* <Button className="m-1 !flex items-center rounded-0">
+                      {getIconsByName("bs", "BsFillChatDotsFill")} &nbsp;
+                      Conversar
+                    </Button>
+                    <Button className="m-1 rounded-0">
+                      Fazer uma pergunta de multiplaescolha
+                    </Button>
+                    <Button className="m-1 rounded-0">Pedir informações</Button>
+                    <Button className="m-1 rounded-0">Anunciar no OPÇÃO</Button> */}
+                  </div>
+                </Tooltip>
+              )}
+            </Overlay>
           </div>
         </Container>
       </Navbar>
